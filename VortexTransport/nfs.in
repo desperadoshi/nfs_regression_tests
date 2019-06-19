@@ -1,0 +1,56 @@
+&input
+
+! LOAD_RESTART_FILE = .TRUE.
+! RESTART_FILE = 'Restart_files/out.current.rst'
+
+GRID_FORMAT = 1     ! Gmsh file format
+GRIDFILE = "grid02/32x32.msh"
+
+METIS_OPTION = 1
+
+ALL_ORDERS = 3
+ALL_POINTS = 1 ! Legendre-Gauss points
+! ERROR_ORDER = 6
+
+GOVERNING_EQUATIONS = 1   ! Euler equations
+NUM_TIMESTEPS = 100
+! NUM_TIMESTEPS = 1
+! FINAL_TIME = 1.5E-4
+FINAL_TIME = 0.144 ! 25 * T_unit
+TIMESTEP_TYPE = 0 ! Global CFL condition
+CONSTANT_DT = 5.0E-5
+CFL = 1.0
+
+! Flow reference conditions:
+MACHREF = 0.05
+GAM = 1.4
+TREF = 300.0 ! K
+PREF = 1E5 ! Pa
+
+ITESTCASE = 2 ! HiOCFD Vortex
+vortex_Xc = 0.05
+vortex_Yc = 0.05
+vortex_bigR = 0.005
+vortex_bigGam = 0.02
+viscosity_method = 1
+muref = 1.0 ! dummy value for inviscid simulation
+! T unit is Lx / Uref = 5.76E-3
+
+! Timing information:
+RESTART_INTERVAL = 0
+OUTPUT_INTERVAL = 1400
+RESULTS_INTERVAL = 10
+ITER_OUT_INTERVAL = 10
+
+BC_INPUT(1)%NAME = 'Periodic-1'
+BC_INPUT(1)%BC_TYPE_STRING = 'Periodic-1'
+BC_INPUT(2)%NAME = 'Periodic-2'
+BC_INPUT(2)%BC_TYPE_STRING = 'Periodic-2'
+BC_INPUT(3)%NAME = 'Periodic-3'
+BC_INPUT(3)%BC_TYPE_STRING = 'Periodic-3'
+BC_INPUT(4)%NAME = 'Periodic-4'
+BC_INPUT(4)%BC_TYPE_STRING = 'Periodic-4'
+
+SOL_FIELDS(1) = 'Vorticity'
+
+/
