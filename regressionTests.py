@@ -209,7 +209,8 @@ test_case_param_list_of_dict = [
       "run_directory": "VortexTransport",
       "number_of_processors": default_nproc,
       "number_of_iterations": default_niter,
-      "residuals": [-1.065360235E+01,-1.071742632E+01,-1.044515939E+01,-1.025530768E+01]
+      "residuals": [-1.065360235E+01,-1.071742632E+01,-1.044515939E+01,-1.025530768E+01],
+      "nfs_version": "37e54c6"
     }
 ]
 

@@ -13,6 +13,7 @@ ALL_POINTS = 1 ! Legendre-Gauss points
 ! ERROR_ORDER = 6
 
 GOVERNING_EQUATIONS = 1   ! Euler equations
+! 1000000 is 0.144
 NUM_TIMESTEPS = 100
 ! NUM_TIMESTEPS = 1
 ! FINAL_TIME = 1.5E-4
