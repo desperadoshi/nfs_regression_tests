@@ -168,6 +168,10 @@ class regressionTest:
             if all(passed):
                 print("All tests for", self.caseName, "PASSED!")
                 self.passedStatus = "PASSED"
+                #  relerr = [abs(resid - truth[ii]) / abs(truth[ii]) \
+                #            for ii, resid in enumerate(resids)]
+                #  print("Relative differences are %9.2e %9.2e %9.2e %9.2e with the threshold" \
+                #      %(relerr[0],relerr[1],relerr[2],relerr[3]), self.percentTolerance)
             else:
                 print("Tests for", self.caseName, "FAILED!")
                 print("Residuals should be:", truth)
@@ -201,6 +205,7 @@ default_nproc = 4
 default_niter = 100
 default_input_fname = "nfs.in"
 default_res_fname = "residual.dat"
+default_res_thres = 1E-3
 default_nfs_relpath = "nfs/release/bin/nfs_opt"
 isProfile = False
 
@@ -225,6 +230,7 @@ def test_case(in_tcpd, in_totalPass, in_options):
     case.SetNumberOfProcessors(in_tcpd["number_of_processors"])
     case.SetNumberOfIterations(in_tcpd["number_of_iterations"])
     case.SetResiduals(in_tcpd["residuals"])
+    case.SetPercentTolerance(default_res_thres)
     case.SetIgnoreIndices([])
     case.SetMpirunPath(in_options.mpirunPath)
     # run regression case
