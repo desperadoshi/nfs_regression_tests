@@ -131,7 +131,7 @@ class regressionTest:
         with open(fname, "w") as fout:
             with open(fnameBackup, "r") as fin:
                 for line in fin:
-                    if "NUM_TIMESTEPS=" in line:
+                    if "NUM_TIMESTEPS" in line:
                         fout.write("NUM_TIMESTEPS=" + str(self.iterations) + "\n")
                     #  elif "outputFrequency:" in line:
                     #      fout.write("outputFrequency: " + str(self.iterations) + "\n")
@@ -206,7 +206,9 @@ default_niter = 100
 default_input_fname = "nfs.in"
 default_res_fname = "residual.dat"
 default_res_thres = 1E-3
+#  default_nfs_relpath = "nfs/debug/bin/nfs_dbg"
 default_nfs_relpath = "nfs/release/bin/nfs_opt"
+#  default_nfs_relpath = "nfs/release/bin/nfs_opt_37e54c6"
 isProfile = False
 
 test_case_param_list_of_dict = [

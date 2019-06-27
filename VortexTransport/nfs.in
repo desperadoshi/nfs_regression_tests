@@ -14,8 +14,7 @@ ALL_POINTS = 1 ! Legendre-Gauss points
 
 GOVERNING_EQUATIONS = 1   ! Euler equations
 ! 1000000 is 0.144
-NUM_TIMESTEPS = 100
-! NUM_TIMESTEPS = 1
+NUM_TIMESTEPS=100
 ! FINAL_TIME = 1.5E-4
 FINAL_TIME = 0.144 ! 25 * T_unit
 TIME_SCHEME = 1 ! Explicit_RK
