@@ -1,0 +1,73 @@
+{
+
+  "simulation": {
+    "output_dir": "."
+  },
+
+  "grid": {
+    "grid_format": 1,
+    "gridfile": "grid02/32x32.msh",
+    "metis_option": 1
+  },
+
+  "physics": {
+    "governing_equations": 1,
+    "machref": 0.05,
+    "gam": 1.4,
+    "tref": 300.0,
+    "pref": 1e5,
+    "viscosity_method": 1,
+    "muref": 1.0
+  },
+
+  "space_solver": {
+    "all_orders": 3,
+    "all_points": 1
+  },
+
+  "time_solver": {
+    "time_scheme": 1,
+    "runge_kutta_scheme": 3,
+    "num_rk_stages": 3,
+
+    "timestep_type": 0,
+    "num_timesteps": 100,
+    "final_time": 0.144,
+    "constant_dt": 5e-5,
+    "cfl": 1.0
+  },
+
+  "initialization": {
+    "caseid": 2,
+    "vortex_Xc": 0.05,
+    "vortex_Yc": 0.05,
+    "vortex_bigR": 0.005,
+    "vortex_bigGam": 0.02
+  },
+
+  "solution": {
+    "restart_interval": 0,
+    "output_interval": 1400,
+    "residual_interval": 10,
+    "iter_out_interval": 10,
+    "sol_fields": [
+      "vorticity"
+    ]
+  },
+
+  "bc": {
+      "names": [
+        "Periodic-1",
+        "Periodic-2",
+        "Periodic-3",
+        "Periodic-4"
+      ],
+      "types": [
+        "Periodic-1",
+        "Periodic-2",
+        "Periodic-3",
+        "Periodic-4"
+      ]
+    }
+
+}

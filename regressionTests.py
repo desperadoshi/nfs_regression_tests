@@ -124,21 +124,23 @@ class regressionTest:
         return self.residuals
         
     # change input file to have number of iterations specified for test
-    def ModifyInputFile(self):
-        fname = default_input_fname
-        fnameBackup = fname + ".old"
-        shutil.move(fname, fnameBackup)
-        with open(fname, "w") as fout:
-            with open(fnameBackup, "r") as fin:
-                for line in fin:
-                    if "NUM_TIMESTEPS" in line:
-                        fout.write("NUM_TIMESTEPS=" + str(self.iterations) + "\n")
-                    #  elif "outputFrequency:" in line:
-                    #      fout.write("outputFrequency: " + str(self.iterations) + "\n")
-                    #  elif "restartFrequency:" in line and self.isProfile:
-                    #      fout.write("restartFrequency: " + str(self.iterations) + "\n")
-                    else:
-                        fout.write(line)
+    #  #  NFS now uses the json file as the input file, so here we need to use
+    #  #  json library to modify the input file. TODO
+    #  def ModifyInputFile(self):
+    #      fname = default_input_fname
+    #      fnameBackup = fname + ".old"
+    #      shutil.move(fname, fnameBackup)
+    #      with open(fname, "w") as fout:
+    #          with open(fnameBackup, "r") as fin:
+    #              for line in fin:
+    #                  if "NUM_TIMESTEPS" in line:
+    #                      fout.write("NUM_TIMESTEPS=" + str(self.iterations) + "\n")
+    #                  #  elif "outputFrequency:" in line:
+    #                  #      fout.write("outputFrequency: " + str(self.iterations) + "\n")
+    #                  #  elif "restartFrequency:" in line and self.isProfile:
+    #                  #      fout.write("restartFrequency: " + str(self.iterations) + "\n")
+    #                  else:
+    #                      fout.write(line)
 
     # modify the input file and run the test
     def RunCase(self):
@@ -146,7 +148,7 @@ class regressionTest:
         print("---------- Starting Test:", self.caseName, "----------")
         print("Current directory:", os.getcwd())
         print("Modifying input file...")
-        self.ModifyInputFile()
+        #  self.ModifyInputFile()
         cmd = self.mpirunPath + " -np " + str(self.procs) + " " + self.nfsPath \
             + " " + default_input_fname + " > " + self.caseName + ".out"
         print(cmd)
@@ -203,7 +205,7 @@ class regressionTest:
 # Define the test cases
 default_nproc = 4
 default_niter = 100
-default_input_fname = "nfs.in"
+default_input_fname = "nfs.json"
 default_res_fname = "residual.dat"
 default_res_thres = 1E-3
 #  default_nfs_relpath = "nfs/debug/bin/nfs_dbg"
