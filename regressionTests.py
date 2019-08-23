@@ -209,7 +209,7 @@ default_input_fname = "nfs.json"
 default_res_fname = "residual.dat"
 default_res_thres = 1E-3
 #  default_nfs_relpath = "nfs/debug/bin/nfs_dbg"
-default_nfs_relpath = "nfs/release/bin/nfs_opt"
+default_nfs_relpath = "NFS/release/bin/nfs_opt"
 #  default_nfs_relpath = "nfs/release/bin/nfs_opt_37e54c6"
 isProfile = False
 

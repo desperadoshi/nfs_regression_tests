@@ -1,7 +1,9 @@
 {
 
   "simulation": {
-    "output_dir": "."
+    "output_dir": ".",
+    "restart_interval": 0,
+    "checkpoint_interval": 0
   },
 
   "grid": {
@@ -46,10 +48,10 @@
   },
 
   "solution": {
-    "restart_interval": 0,
     "output_interval": 1400,
     "residual_interval": 10,
     "iter_out_interval": 10,
+    "monitor_interval": 10,
     "sol_fields": [
       "vorticity"
     ]
